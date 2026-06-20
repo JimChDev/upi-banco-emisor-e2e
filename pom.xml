@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- La identidad de tu sistema Padre -->
+    <groupId>com.upi.bank</groupId>
+    <artifactId>upi-banco-emisor-e2e</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <!-- ¡ESTO ES CRÍTICO! "pom" significa que este proyecto no compila código,
+         solo organiza a sus hijos -->
+    <packaging>pom</packaging>
+
+    <!-- Versiones centralizadas. Si actualizamos Java o Spring, lo hacemos solo aquí -->
+    <properties>
+        <java.version>21</java.version>
+        <spring-boot.version>3.2.4</spring-boot.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+    </properties>
+
+    <!-- Herencia de Spring Boot (El estándar de la industria) -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.4</version>
+        <relativePath/> <!-- Busca el parent en el repositorio remoto, no localmente -->
+    </parent>
+
+    <!-- La lista de tus microservicios (Los hijos) -->
+    <modules>
+<!--        <module>upi-shared-proto</module>-->
+<!--        <module>bank-upi-switch</module>-->
+<!--        <module>device-binding-service</module>-->
+<!--        <module>hsm-crypto-service</module>-->
+        <module>account-mapper-service</module>
+<!--        <module>high-speed-authorizer</module> &lt;!&ndash; Nuestro nuevo Autorizador &ndash;&gt;-->
+<!--        <module>saga-reversal-service</module>-->
+<!--        <module>mandate-autopay-service</module>-->
+<!--        <module>fraud-detection-engine</module>-->
+<!--        <module>reconciliation-service</module>-->
+<!--        <module>mock-core-banking</module>-->
+    </modules>
+
+</project>
