@@ -1,5 +1,6 @@
-package com.upi.bank.accountmapper;
+package com.upi.bank.accountmapper.repository;
 
+import com.upi.bank.accountmapper.model.AccountInfo;
 import org.springframework.stereotype.Repository;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

@@ -1,4 +1,4 @@
-package com.upi.bank.accountmapper;
+package com.upi.bank.accountmapper.model;
 
 
 //

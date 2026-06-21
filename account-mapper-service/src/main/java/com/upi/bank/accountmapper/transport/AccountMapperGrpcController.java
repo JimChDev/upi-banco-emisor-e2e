@@ -1,11 +1,15 @@
-package com.upi.bank.accountmapper;
+package com.upi.bank.accountmapper.transport;
 
+import com.upi.bank.accountmapper.service.AccountMapperService;
+import com.upi.bank.accountmapper.model.AccountInfo;
 import com.upi.bank.grpc.accountmapper.AccountMapperGrpcServiceGrpc;
 import com.upi.bank.grpc.accountmapper.AccountResolveRequest;
 import com.upi.bank.grpc.accountmapper.AccountResolveResponse;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
+import net.devh.boot.grpc.server.service.GrpcService;
 
+@GrpcService
 public class AccountMapperGrpcController extends AccountMapperGrpcServiceGrpc.AccountMapperGrpcServiceImplBase {
     private final AccountMapperService logicService;
 

@@ -1,5 +1,7 @@
-package com.upi.bank.accountmapper;
+package com.upi.bank.accountmapper.service;
 
+import com.upi.bank.accountmapper.model.AccountInfo;
+import com.upi.bank.accountmapper.repository.VpaRepository;
 import org.springframework.stereotype.Service;
 
 @Service

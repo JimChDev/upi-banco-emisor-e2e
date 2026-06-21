@@ -21,5 +21,10 @@ public class AccountMapperApplication {
 //                System.err.println("Error con VPA " + vpa + ": " + e.getMessage());
 //            }
 //        }
+
+        System.out.println("╔══════════════════════════════════════╗");
+        System.out.println("║ Account Mapper Service Iniciado      ║");
+        System.out.println("║ gRPC Server en puerto: 9090          ║");
+        System.out.println("╚══════════════════════════════════════╝");
     }
 }
