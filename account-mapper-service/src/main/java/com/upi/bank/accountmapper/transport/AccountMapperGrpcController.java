@@ -8,11 +8,13 @@ import com.upi.bank.grpc.accountmapper.AccountResolveResponse;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @GrpcService
 public class AccountMapperGrpcController extends AccountMapperGrpcServiceGrpc.AccountMapperGrpcServiceImplBase {
     private final AccountMapperService logicService;
-
+    private final Logger log = LoggerFactory.getLogger(AccountMapperGrpcController.class);
     // Inyección de dependencias por constructor. Conectamos la red con el cerebro.
     public AccountMapperGrpcController(AccountMapperService logicService) {
         this.logicService = logicService;
@@ -23,7 +25,8 @@ public class AccountMapperGrpcController extends AccountMapperGrpcServiceGrpc.Ac
      try{
          //Extraemos el VPA del mensaje Protobuf entrante
          String vpa = request.getVpa();
-         System.out.println("[gRPC] Petición recibida para resolver VPA: " + vpa);
+         //System.out.println("[gRPC] Petición recibida para resolver VPA: " + vpa);
+         log.info("[gRPC] Petición recibida para resolver VPA: " + vpa);
 
          //2. delegamos el trabajo pesado a nuestra capa dominio
          AccountInfo accountInfo = logicService.resolveAccount(vpa);

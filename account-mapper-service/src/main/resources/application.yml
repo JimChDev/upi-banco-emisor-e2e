@@ -1,0 +1,11 @@
+spring:
+  application:
+    # Usamos la sintaxis ${VARIABLE_SISTEMA:valor_por_defecto}
+    name: ${APP_NAME:account-mapper-service}
+  main:
+    web-application-type: none
+
+grpc:
+  server:
+    # Si Docker o AWS no inyectan la variable GRPC_PORT, usará el 9090
+    port: ${GRPC_PORT:9090}

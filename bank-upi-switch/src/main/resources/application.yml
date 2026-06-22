@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: ${APP_NAME:bank-upi-switch}
+
+server:
+  port: ${SWITCH_HTTP_PORT:8080}
+
+grpc:
+  client:
+    account-mapper:
+      # Jamás quemamos localhost en producción
+      address: ${ACCOUNT_MAPPER_URL:static://localhost:9090}
+      negotiation-type: plaintext
+logging:
+  pattern:
+    # Este patrón mágico busca el 'traceId' en el MDC y lo imprime entre corchetes
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} [TraceID: %X{traceId}] - %msg%n"

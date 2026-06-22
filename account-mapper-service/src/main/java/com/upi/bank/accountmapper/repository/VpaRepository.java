@@ -12,8 +12,8 @@ public class VpaRepository {
     // Constructor que inicializa el repositorio con algunos datos de ejemplo.
     // En un escenario real, esto se conectaría a una base de datos.
     public VpaRepository() {
-        dataStore.put("john.doe@bank", new AccountInfo("john.doe@bank", "1234567890", "ACTIVE"));
-        dataStore.put("jane.smith@bank", new AccountInfo("jane.smith@bank", "0987654321", "FROZEN"));
+        dataStore.put("juan@sbi", new AccountInfo("juan@sbi", "1234567890", "ACTIVE"));
+        dataStore.put("maria@hdfc", new AccountInfo("maria@hdfc", "0987654321", "FROZEN"));
     }
 
     public AccountInfo findAccountByVpa(String vpa) {
