@@ -7,7 +7,7 @@ option java_package = "com.upi.bank.grpc.accountmapper";
 
 // 1. El Servicio (Equivalente a una Interfaz en Java o un Controller en REST)
 service AccountMapperGrpcService {
-  // Definimos un método (rpc) que recibe un Request y devuelve un Response
+  // Definimos un metodo (rpc) que recibe un Request y devuelve un Response
   rpc MapAccount (AccountResolveRequest) returns (AccountResolveResponse);
 }
 

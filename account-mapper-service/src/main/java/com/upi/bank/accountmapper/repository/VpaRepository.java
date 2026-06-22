@@ -9,6 +9,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class VpaRepository {
     private final Map<String, AccountInfo> dataStore = new ConcurrentHashMap<>();
 
+    // Constructor que inicializa el repositorio con algunos datos de ejemplo.
+    // En un escenario real, esto se conectaría a una base de datos.
     public VpaRepository() {
         dataStore.put("john.doe@bank", new AccountInfo("john.doe@bank", "1234567890", "ACTIVE"));
         dataStore.put("jane.smith@bank", new AccountInfo("jane.smith@bank", "0987654321", "FROZEN"));
