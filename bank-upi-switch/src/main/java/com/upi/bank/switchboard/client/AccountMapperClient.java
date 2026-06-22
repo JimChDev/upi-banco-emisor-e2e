@@ -19,7 +19,8 @@ public class AccountMapperClient {
 
     public void verifyVpa(String vpaToVerify){
         //System.out.println("[Switch] Intentando resolver VPA: " + vpaToVerify);
-        log.info("[Switch] Intentando resolver VPA: " + vpaToVerify);
+        log.info("Iniciando validación en red UPI para VPA: {}", vpaToVerify);
+
         try{
             //1. Armano el mensaje protobuf usando el patron builder
             AccountResolveRequest request = AccountResolveRequest.newBuilder()
@@ -31,11 +32,10 @@ public class AccountMapperClient {
 //            //3. Imprimir el éxito
 //            System.out.println("[Switch] ¡Éxito! Cuenta encontrada: " + response.getAccountNumber());
 //            System.out.println("[Switch] Estado de la cuenta: " + response.getStatus());
-            log.info("[Switch] ¡Éxito! Cuenta encontrada: " + response.getAccountNumber());
-            log.info("[Switch] Estado de la cuenta: " + response.getStatus());
+            log.info("¡Éxito! Cuenta encontrada: {} con estado: {}", response.getAccountNumber(), response.getStatus());
         } catch(Exception ex){
             //si el puerto 9090 lanza un error (ej. Status.NOT_FOUND)
-            System.out.println("[Switch] Error al resolver VPA: " + ex.getMessage());
+            log.error("Error de gRPC al verificar VPA: {}", ex.getMessage());
         }
     }
 }

@@ -9,3 +9,8 @@ grpc:
   server:
     # Si Docker o AWS no inyectan la variable GRPC_PORT, usará el 9090
     port: ${GRPC_PORT:9090}
+
+logging:
+  pattern:
+    # Este patrón mágico busca el 'traceId' en el MDC y lo imprime entre corchetes
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} [TraceID: %X{traceId}] - %msg%n"
