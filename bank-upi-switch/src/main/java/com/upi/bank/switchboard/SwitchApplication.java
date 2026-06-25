@@ -13,22 +13,22 @@ public class SwitchApplication {
     }
 
     //Este ben se ejecuta automaticamente al iniciar la app
-    @Bean
-    public CommandLineRunner runTest(AccountMapperClient client){
-        return args -> {
-            System.out.println("----------------------------------------");
-            System.out.println("Iniciando prueba de conexión gRPC E2E...");
-
-            // Prueba 1: Un VPA Válido
-            client.verifyVpa("juan@sbi");
-
-            // Prueba 2: Un VPA Congelado (Debería dar error PERMISSION_DENIED)
-            client.verifyVpa("maria@hdfc");
-
-            // Prueba 3: Un VPA Inexistente (Debería dar error NOT_FOUND)
-            client.verifyVpa("hacker@sbi");
-
-            System.out.println("----------------------------------------");
-        };
-    }
+//    @Bean
+//    public CommandLineRunner runTest(AccountMapperClient client){
+//        return args -> {
+//            System.out.println("----------------------------------------");
+//            System.out.println("Iniciando prueba de conexión gRPC E2E...");
+//
+//            // Prueba 1: Un VPA Válido
+//            client.verifyVpa("juan@sbi");
+//
+//            // Prueba 2: Un VPA Congelado (Debería dar error PERMISSION_DENIED)
+//            client.verifyVpa("maria@hdfc");
+//
+//            // Prueba 3: Un VPA Inexistente (Debería dar error NOT_FOUND)
+//            client.verifyVpa("hacker@sbi");
+//
+//            System.out.println("----------------------------------------");
+//        };
+//    }
 }
