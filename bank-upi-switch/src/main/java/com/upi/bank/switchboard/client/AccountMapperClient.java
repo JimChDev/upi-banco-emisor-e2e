@@ -3,6 +3,7 @@ package com.upi.bank.switchboard.client;
 import com.upi.bank.grpc.accountmapper.AccountMapperGrpcServiceGrpc;
 import com.upi.bank.grpc.accountmapper.AccountResolveRequest;
 import com.upi.bank.grpc.accountmapper.AccountResolveResponse;
+import io.grpc.StatusRuntimeException;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,9 +34,20 @@ public class AccountMapperClient {
 //            System.out.println("[Switch] ¡Éxito! Cuenta encontrada: " + response.getAccountNumber());
 //            System.out.println("[Switch] Estado de la cuenta: " + response.getStatus());
             log.info("¡Éxito! Cuenta encontrada: {} con estado: {}", response.getAccountNumber(), response.getStatus());
-        } catch(Exception ex){
+        }catch(StatusRuntimeException e){
+            //gRPC envuele todos los errores en StatusRuntimeException.
+            //Extraemos la descripción exacta que mandó el servidor
+            String errorMessage = e.getStatus().getDescription();
+            log.error("Rechazo de gRPC para VPA{}: {}", vpaToVerify, errorMessage);
+
+            //Lanzamos la excepción para cortar la ejecución del orquestador
+            throw new RuntimeException(errorMessage);
+
+        }catch(Exception ex){
             //si el puerto 9090 lanza un error (ej. Status.NOT_FOUND)
-            log.error("Error de gRPC al verificar VPA: {}", ex.getMessage());
+            // Fallback para errores graves de red (ej. si el servidor 9090 está apagado)
+            log.error("Error crítico de comunicación con Account Mapper: {}", ex.getMessage());
+            throw new RuntimeException("Servicio de validación no disponible");
         }
     }
 }

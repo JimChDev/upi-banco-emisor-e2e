@@ -37,7 +37,7 @@ public class CentralSwitchController {
             String result = orchestratorService.processPayment(reqPay);
             return ResponseEntity.ok(result);
         }catch (Exception e){
-            log.error("Transacción falida en el Orchestrator: {}", e.getMessage());
+            log.error("Transacción fallida en el Orchestrator: {}", e.getMessage());
             //En producción aqui devolveriamos un JSON de error ISO 20022
             return ResponseEntity.badRequest().body("Error: "+ e.getMessage());
         }finally {

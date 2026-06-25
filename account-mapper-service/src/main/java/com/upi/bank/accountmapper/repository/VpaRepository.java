@@ -14,6 +14,7 @@ public class VpaRepository {
     public VpaRepository() {
         dataStore.put("juan@sbi", new AccountInfo("juan@sbi", "1234567890", "ACTIVE"));
         dataStore.put("maria@hdfc", new AccountInfo("maria@hdfc", "0987654321", "FROZEN"));
+        dataStore.put("oll@sbi", new AccountInfo("oll@sbi", "1234567840", "ACTIVE"));
     }
 
     public AccountInfo findAccountByVpa(String vpa) {
