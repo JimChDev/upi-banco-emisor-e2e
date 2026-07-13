@@ -9,7 +9,12 @@ grpc:
   server:
     # Si Docker o AWS no inyectan la variable GRPC_PORT, usará el 9090
     port: ${GRPC_PORT:9090}
-
+spring:
+  data:
+    redis:
+      # Apuntamos a la red local expuesta por Docker Desktop
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
 logging:
   pattern:
     # Este patrón mágico busca el 'traceId' en el MDC y lo imprime entre corchetes

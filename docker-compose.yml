@@ -10,6 +10,7 @@ services:
       POSTGRES_PASSWORD: upi_password
       POSTGRES_DB: upi_ledger
     ports:
+      #Lado izquierdo maquina local, lado derecho contenedor
       - "5432:5432" # Exponemos el puerto para conectar DBeaver o IntelliJ DataGrip
     volumes:
       - postgres_data:/var/lib/postgresql/data # Persistencia: Si borras el contenedor, no pierdes el dinero
